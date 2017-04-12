@@ -9,30 +9,32 @@ chai.config.includeStack = true;
  * root level hooks
  */
 
-describe('## User Routes', () => {
+describe('## TopActiveUsers Routes', () => {
 
-  describe('# GET /users?id={user.id}', () => {
-    it('should return the first user when passed ?id=1', function(done) {
+  describe('# GET /topActiveUsers?page={pageNumber}', () => {
+
+    it('should return entries or null message when ?page=1', function(done) {
       this.timeout(500);
 
       request(app)
-        .get('/users?id=1')
+        .get('/topActiveUsers?page=1')
         .expect(httpStatus.OK)
         .then((res) => {
-          expect(res.body.id).to.equal(1);
 
           done();
         })
         .catch(done);
     });
 
-    it('should return error when passing wrong or null ?id={user.id}', function(done) {
+    it('should return null message when ?page=9999', function(done) {
       this.timeout(500);
 
       request(app)
-        .get('/users?id=hello')
-        .expect(httpStatus.INTERNAL_SERVER_ERROR)
+        .get('/topActiveUsers?page=9999')
+        .expect(httpStatus.OK)
         .then((res) => {
+          expect(res.body.code).to.equal(-1);
+
           done();
         })
         .catch(done);

@@ -25,9 +25,11 @@ class UserBusiness {
 
         return pgContext.query(mainQuery)
           .then(users => {
+            if(users.rows.length == 0)
+              return null;
+
             let idsToFetch = [];
             users.rows.map(i => {idsToFetch.push(i.id)});
-            console.log(idsToFetch.join(','));
             let listingsQuery = `select a.user_id, l.name from applications a
                                     inner join listings l on l.id = a.listing_id
                                   where a.user_id in (${idsToFetch.join(',')})

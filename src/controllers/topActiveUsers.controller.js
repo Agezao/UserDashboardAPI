@@ -15,7 +15,9 @@ function get(req, res, next) {
   
   _activeUsersBusiness.get(req.query.page)
     .then(entries => {
-      res.json(_responseFactory.success(entries));
+    	if(!entries)
+    		return res.json(_responseFactory.fail(-1, 'Not enough data to show'));
+		res.json(_responseFactory.success(entries));
     })
     .catch(e => next(e));
 }

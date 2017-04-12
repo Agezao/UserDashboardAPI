@@ -7,8 +7,8 @@ const debug = require('debug')('userdashboardapi:index');
 
 // Setting up postgres database
 let ctx = pgContext.connect();
-if(ctx)
-	ctx.then(() => console.log('Connected to DB')).catch(() => console.log('Failed to connect to DB'));
+//if(ctx)
+//	ctx.then(() => console.log('Connected to DB')).catch(() => console.log('Failed to connect to DB'));
 
 // module.parent check is required to support mocha watch
 // src: https://github.com/mochajs/mocha/issues/1912
