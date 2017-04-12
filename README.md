@@ -12,3 +12,13 @@ make sure to have `yarn` and `cross-env` installed for better performance/testin
 5. run `npm test`
 6. If everything went well, the compiled production files will be at /dist/
 7. Or, start the server with `npm start`
+
+## API Routing:
+
+1. /topActiveUsers?page={pageNumber}
+2. /users?id={user.id}
+
+## Test Results:
+
+For your `npm test` results, you should be expecting something like this as a positive test-run:
+<img src="http://i.imgur.com/MbexBmo.png" />
