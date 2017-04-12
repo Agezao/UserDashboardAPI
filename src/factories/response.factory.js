@@ -30,7 +30,8 @@ class ResponseFactory {
         responseObject.code    = 1;
         responseObject.data    = responseData;
 
-        return responseObject;
+        // Because of the given especification, I'm leaving only the 'data' part of the response
+        return responseObject.data;
     };
 }
 
