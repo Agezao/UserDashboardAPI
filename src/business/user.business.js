@@ -18,7 +18,8 @@ class UserBusiness {
                                           t.contact_user as isContact
                                       from teams t
                                           inner join companies c on c.id = t.company_id
-                                          where t.user_id = ${userId}`;
+                                          where t.user_id = ${userId}
+                                      limit 5`;
 
             return pgContext.query(fetchCompaniesQuery)
                     .then(companies => {
@@ -30,7 +31,8 @@ class UserBusiness {
                                                       l.name,
                                                       l.description
                                                   from listings l
-                                                      where l.created_by = ${userId}`;
+                                                      where l.created_by = ${userId}
+                                                  limit 5`;
 
                         return pgContext.query(fetchListingsQuery)
                                 .then(createdListings => {
@@ -45,7 +47,8 @@ class UserBusiness {
                                                                 l.description as listing_description
                                                             from applications a
                                                                 inner join listings l on l.id = a.listing_id
-                                                            where a.user_id = ${userId}`;
+                                                            where a.user_id = ${userId}
+                                                            limit 5`;
 
                                     return pgContext.query(fetchApplications)
                                             .then(applications => {
