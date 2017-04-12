@@ -15,8 +15,9 @@ make sure to have `yarn` and `cross-env` installed for better performance/testin
 
 ## API Routing:
 
-1. /topActiveUsers?page={pageNumber}
-2. /users?id={user.id}
+1. GET:  /topActiveUsers?page={pageNumber}
+2. GET:  /users?id={user.id}
+3. POST: /users
 
 ## Test Results:
 
